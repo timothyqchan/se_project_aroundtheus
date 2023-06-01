@@ -4,7 +4,12 @@
 }
 
 .page__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -12,6 +17,14 @@
 .page__section {
   max-width: 880px;
   width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 940px) {
+  .page__section {
+    max-width: calc(100% - 40px);
+  }
 }

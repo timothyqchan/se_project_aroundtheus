@@ -1,7 +1,11 @@
 .header {
   margin-bottom: 40px;
   padding: 45px 0 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   border-bottom: 1px solid #545454;
 }
@@ -9,4 +13,22 @@
 .header__title-image {
   max-width: 173px;
   max-height: 33px;
+}
+
+@media screen and (max-width: 940px) {
+  .header__title-image {
+    padding-left: 10%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .header__title-image {
+    padding-right: 150px;
+    height: 24px;
+  }
 }
