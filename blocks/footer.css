@@ -1,5 +1,9 @@
 .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -7,4 +11,22 @@
   margin: 0;
   padding: 67px 0 60px;
   color: #545454;
+}
+
+@media screen and (max-width: 940px) {
+  .footer__copyright {
+    padding-left: 10%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .footer__copyright {
+    padding-left: 0;
+    padding-right: 120px;
+  }
 }
