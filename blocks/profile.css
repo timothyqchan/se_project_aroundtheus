@@ -68,6 +68,7 @@
 
 .profile__edit-button:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .profile__subtitle {
@@ -97,6 +98,7 @@
 
 .profile__add-button:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 940px) {
@@ -140,7 +142,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 637.5px) {
   .profile {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

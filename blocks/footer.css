@@ -1,4 +1,5 @@
 .footer {
+  padding: 67px 0 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,25 +10,27 @@
 
 .footer__copyright {
   margin: 0;
-  padding: 67px 0 60px;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
   color: #545454;
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 936px) {
   .footer {
-    margin-left: 38px;
+    max-width: 580px;
+    margin: 0 auto 41px;
   }
   .footer__copyright {
     font-size: 16px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 637.5px) {
   .footer {
-    margin-left: 19px;
+    max-width: 282px;
+    margin: 0 auto 42px;
+    padding: 48px 0 27px;
   }
   .footer__copyright {
     font-size: 14px;

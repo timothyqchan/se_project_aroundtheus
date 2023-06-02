@@ -35,6 +35,9 @@
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 900;
   font-size: 24px;
+  line-height: 1.2;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -46,6 +49,8 @@
   border: none;
   width: 21px;
   height: 18px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   -webkit-transition: opacity 0.3s ease-in-out 0s;
   -o-transition: opacity 0.3s ease-in-out 0s;
   transition: opacity 0.3s ease-in-out 0s;
@@ -53,4 +58,5 @@
 
 .card__like-button:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
