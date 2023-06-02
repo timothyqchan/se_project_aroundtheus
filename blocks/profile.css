@@ -15,7 +15,7 @@
   -o-object-fit: cover;
   object-fit: cover;
   background-position: center;
-  margin-right: 24px;
+  margin-right: 30px;
 }
 
 .profile__info {
@@ -75,6 +75,8 @@
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   margin: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   font-weight: 400;
@@ -96,11 +98,6 @@
 
 .profile__add-button:hover {
   opacity: 0.5;
-}
-
-.profile__plus {
-  width: 22px;
-  height: 22px;
 }
 
 @media screen and (max-width: 940px) {
@@ -171,6 +168,7 @@
     font-size: 22px;
   }
   .profile__edit-button {
+    background-size: 7.5px 7.5px;
     width: 18px;
     height: 18px;
   }
@@ -180,6 +178,7 @@
     text-align: center;
   }
   .profile__add-button {
+    background-size: 16px 16px;
     width: 282px;
     margin: 36px 0;
   }

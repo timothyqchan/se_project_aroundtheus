@@ -1,28 +1,45 @@
 # Project 3: Around The U.S.
 
-### Overview
+## Author: Timothy Chan
 
-- Intro
+### Summery
+
+This project showcases Jacques Cousteau, an explorer, with images of various locations including:
+
+- Yosemite Valley
+- Lake Louise
+- Bald Mountains
+- Latemar
+- Vanoise National Park
+- Lago di Braies
+
+The site is responsive to various different screen widths including:
+
+- Mobile devices
+- Tablets
+- Desktops
+
+This project displays applying HTML and CSS skills like:
+
 - Figma
 - Images
+- BEM
+- Buttons
+- Hover
+- Smooth transitions
 - Responsive web design
 - Grid
+- Grid with flexbox
 - Media Queries
 
-**Intro**
+**Images**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+![Desktop_Site](./images/site-desktop.PNG)
 
-**Figma** (Completed)
+![Tablet_Site](./images/site-tablet.PNG)
 
-- [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
-
-**Images** (Completed)
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
-
-Good luck and have fun!
+![Mobile_Site](./images/site-mobile.PNG)
 
 **Page Link**
 
-timothyqchan.github.io
+[Site!](https://timothyqchan.github.io/se_project_aroundtheus/)

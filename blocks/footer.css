@@ -10,23 +10,26 @@
 .footer__copyright {
   margin: 0;
   padding: 67px 0 60px;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
   color: #545454;
 }
 
 @media screen and (max-width: 940px) {
+  .footer {
+    margin-left: 38px;
+  }
   .footer__copyright {
-    padding-left: 10%;
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .footer {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    margin-left: 19px;
   }
   .footer__copyright {
-    padding-left: 0;
-    padding-right: 120px;
+    font-size: 14px;
   }
 }

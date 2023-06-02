@@ -8,12 +8,10 @@
   flex-direction: column;
   list-style: none;
   border-radius: 10px;
-  height: 361px;
   overflow: hidden;
 }
 
 .card__image {
-  width: 282px;
   height: 282px;
 }
 
@@ -34,6 +32,9 @@
 
 .card__caption {
   margin: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;

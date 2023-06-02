@@ -16,19 +16,19 @@
 }
 
 @media screen and (max-width: 940px) {
+  .header {
+    margin-left: 20px;
+  }
   .header__title-image {
-    padding-left: 10%;
+    height: 28px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .header {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    margin-left: 27px;
   }
   .header__title-image {
-    padding-right: 150px;
     height: 24px;
   }
 }
