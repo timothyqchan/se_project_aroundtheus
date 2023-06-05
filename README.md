@@ -32,6 +32,10 @@ This project displays applying HTML and CSS skills like:
 - Grid with flexbox
 - Media Queries
 
+**Page Link**
+
+[Site!](https://timothyqchan.github.io/se_project_aroundtheus/)
+
 **Images**
 
 ![Desktop_Site](./images/site-desktop.PNG)
@@ -39,7 +43,3 @@ This project displays applying HTML and CSS skills like:
 ![Tablet_Site](./images/site-tablet.PNG)
 
 ![Mobile_Site](./images/site-mobile.PNG)
-
-**Page Link**
-
-[Site!](https://timothyqchan.github.io/se_project_aroundtheus/)
