@@ -1,4 +1,4 @@
-let initialCards = [
+const initialCards = [
   {
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
@@ -43,8 +43,26 @@ const cardTemplate =
 
 // Functions
 
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
+function fillProfileForm() {
+  profileTitleInput.value = profileTitle.textContent;
+  profileSubtitleInput.value = profileSubtitle.textContent;
+}
+
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+}
+
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
+}
+
+function closeEditProfileModal() {
+  closePopup(profileEditModal);
+}
+
+function openEditProfileModal() {
+  fillProfileForm();
+  openPopup(profileEditModal);
 }
 
 function getCardElement(cardData) {
@@ -69,26 +87,18 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  closePopup();
+  closeEditProfileModal();
 }
 
 // Event Listeners
 
-profileEditButton.addEventListener("click", function () {
-  profileTitleInput.value = profileTitle.textContent;
-  profileSubtitleInput.value = profileSubtitle.textContent;
-  profileEditModal.classList.add("modal_opened");
-});
+profileEditButton.addEventListener("click", openEditProfileModal);
 
-profileEditCloseButton.addEventListener("click", closePopup);
+profileEditCloseButton.addEventListener("click", closeEditProfileModal);
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 // Loops
-
-// for (let i = 0; i <= initialCards.length - 1; i++) {
-//   const card = initialCards[i];
-// }
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
