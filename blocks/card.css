@@ -30,7 +30,7 @@
   justify-content: space-between;
 }
 
-.card__caption {
+.card__title {
   margin: 0;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 900;
