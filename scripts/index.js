@@ -81,13 +81,20 @@ function openEditProfileModal() {
   fillProfileForm();
   openPopup(editProfileModal);
 }
-// edit
+
 function closeAddCardModal() {
   closePopup(addCardModal);
 }
-//edit
+
 function openAddCardModal() {
+  addCardTitleInput.value = "";
+  addCardLinkInput.value = "";
   openPopup(addCardModal);
+}
+
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
 }
 
 function getCardElement(cardData) {
@@ -100,13 +107,6 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function resetCards() {
-  initialCards.forEach((cardData) => {
-    const cardElement = getCardElement(cardData);
-    cardListEl.prepend(cardElement);
-  });
-}
-
 // Event Handlers
 
 function handleEditProfileSubmit(e) {
@@ -116,10 +116,13 @@ function handleEditProfileSubmit(e) {
   closeEditProfileModal();
 }
 
-// function handleAddCardSubmit(e) {
-//   e.preventDefault();
-//   closeAddCardModal();
-// }
+function handleAddCardSubmit(e) {
+  e.preventDefault();
+  const name = addCardTitleInput.value;
+  const link = addCardLinkInput.value;
+  renderCard({ name, link }, cardListEl);
+  closeAddCardModal();
+}
 
 // Event Listeners
 
@@ -140,6 +143,5 @@ addCardForm.addEventListener("submit", handleAddCardSubmit);
 // Loops
 
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  renderCard(cardData, cardListEl);
 });
