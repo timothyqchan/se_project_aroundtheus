@@ -21,6 +21,7 @@
         />
       </header>
       <main class="content">
+        <!-- Profile -->
         <section class="profile page__section">
           <img
             class="profile__image"
@@ -28,45 +29,52 @@
             alt="Jacques Cousteau face"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__name">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
-              id="profile-edit-button"
+              id="edit-profile-button"
               type="button"
             ></button>
-            <p class="profile__subtitle">Explorer</p>
+            <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            id="add-card-button"
+            type="button"
+          ></button>
         </section>
+        <!-- Cards List -->
         <section class="content__cards page__section">
           <ul class="content__list"></ul>
         </section>
       </main>
+      <!-- Footer -->
       <footer class="footer page__section">
         <p class="footer__copyright">&copy; 2023 Around The U.S.</p>
       </footer>
     </div>
-    <div class="modal" id="profile-edit-modal">
+    <!-- Edit Modal -->
+    <div class="modal" id="edit-profile-modal">
       <div class="modal__container">
         <button
           class="modal__close"
-          id="profile-close-button"
+          id="close-profile-button"
           type="button"
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form">
+        <form class="modal__form" id="edit-profile-form">
           <input
-            class="modal__input"
-            id="profile-title-input"
+            class="modal__input modal__input_type_name"
+            id="profile-name-input"
             type="text"
-            name="title"
+            name="name"
             placeholder="Name"
           />
           <input
-            class="modal__input"
-            id="profile-subtitle-input"
+            class="modal__input modal__input_type_description"
+            id="profile-description-input"
             type="text"
-            name="subtitle"
+            name="description"
             placeholder="Occupation"
           />
           <button class="modal__button" id="profile-save-button" type="submit">
@@ -75,9 +83,44 @@
         </form>
       </div>
     </div>
-
+    <!-- Add Modal -->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="close-profile-button"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" id="add-card-form">
+          <input
+            class="modal__input modal__input_type_title"
+            id="card-title-input"
+            type="text"
+            name="title"
+            placeholder="Title"
+          />
+          <input
+            class="modal__input modal__input_type_link"
+            id="card-link-input"
+            type="text"
+            name="link"
+            placeholder="Image link"
+          />
+          <button class="modal__button" id="create-card-button" type="submit">
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Card Template -->
     <template id="card-template">
       <li class="card">
+        <button
+          class="card__delete-button"
+          id="card-delete-button"
+          type="button"
+        ></button>
         <img class="card__image" src="" alt="" />
         <div class="card__info">
           <h2 class="card__title"></h2>
