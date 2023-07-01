@@ -88,7 +88,7 @@
       <div class="modal__container">
         <button
           class="modal__close"
-          id="close-profile-button"
+          id="close-add-card-button"
           type="button"
         ></button>
         <h2 class="modal__heading">New Place</h2>
@@ -113,14 +113,27 @@
         </form>
       </div>
     </div>
+    <!-- Preview Image Modal -->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__preview-container">
+        <button
+          class="modal__close"
+          id="close-preview-button"
+          type="button"
+        ></button>
+        <img
+          class="modal__preview-image"
+          id="modal-preview-image"
+          src="#"
+          alt="#"
+        />
+        <p class="modal__caption" id="preview-image-caption"></p>
+      </div>
+    </div>
     <!-- Card Template -->
     <template id="card-template">
       <li class="card">
-        <button
-          class="card__delete-button"
-          id="card-delete-button"
-          type="button"
-        ></button>
+        <button class="card__delete-button" type="button"></button>
         <img class="card__image" src="" alt="" />
         <div class="card__info">
           <h2 class="card__title"></h2>

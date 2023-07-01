@@ -20,14 +20,22 @@
   border: none;
   width: 18px;
   height: 19px;
+  -webkit-transition: opacity 0.3s ease-in-out 0s;
+  -o-transition: opacity 0.3s ease-in-out 0s;
+  transition: opacity 0.3s ease-in-out 0s;
 }
 
 .card__delete-button:hover {
+  opacity: 0.6;
   cursor: pointer;
 }
 
 .card__image {
   height: 282px;
+}
+
+.card__image:hover {
+  cursor: pointer;
 }
 
 .card__info {
@@ -69,6 +77,10 @@
   -webkit-transition: opacity 0.3s ease-in-out 0s;
   -o-transition: opacity 0.3s ease-in-out 0s;
   transition: opacity 0.3s ease-in-out 0s;
+}
+
+.card__like-button_active {
+  background: url(../images/like-active.svg);
 }
 
 .card__like-button:hover {
