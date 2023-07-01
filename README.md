@@ -50,6 +50,6 @@ The site is responsive to various different screen widths including:
 
 ![Mobile_Site](./images/site-mobile.PNG)
 
-![Edit_Profile_Modal](./images/edit-profile-modal.PNG)
+![Edit_Profile_Modal](./images/edit-profile-modal.png)
 
-![Add_Card_Modal](./images/add-profile-modal.PNG)
+![Add_Card_Modal](./images/add-profile-modal.png)

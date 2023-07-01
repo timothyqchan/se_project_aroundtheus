@@ -94,8 +94,6 @@ function closeAddCardModal() {
 }
 
 function openAddCardModal() {
-  addCardTitleInput.value = "";
-  addCardLinkInput.value = "";
   openPopup(addCardModal);
 }
 
@@ -149,6 +147,7 @@ function handleAddCardSubmit(e) {
   const link = addCardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   closeAddCardModal();
+  document.getElementById("add-card-form").reset();
 }
 
 // Event Listeners
