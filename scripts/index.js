@@ -132,10 +132,6 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function resetForm(form) {
-  form.reset();
-}
-
 // Event Handlers
 
 function handleEditProfileSubmit(e) {
@@ -145,13 +141,13 @@ function handleEditProfileSubmit(e) {
   closeEditProfileModal();
 }
 
-function handleAddCardSubmit(e, form) {
+function handleAddCardSubmit(e) {
   e.preventDefault();
   const name = addCardTitleInput.value;
   const link = addCardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   closeAddCardModal();
-  form.reset();
+  addCardForm.reset();
 }
 
 // Event Listeners
@@ -167,7 +163,7 @@ addCardButton.addEventListener("click", openAddCardModal);
 addCardCloseButton.addEventListener("click", closeAddCardModal);
 
 addCardForm.addEventListener("submit", (e) => {
-  handleAddCardSubmit(e, addCardForm);
+  handleAddCardSubmit(e);
 });
 
 previewImageCloseButton.addEventListener("click", closePreviewImageModal);
