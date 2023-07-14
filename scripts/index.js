@@ -177,7 +177,7 @@ function addCloseOverlayEventListeners() {
     modalElement.addEventListener("mousedown", (e) => {
       if (e.target.classList.contains("modal")) {
         closePopup(modalElement);
-        if (modalElement.classList.contains("pain_in_the_butt")) {
+        if (modalElement.classList.contains("modal-pain")) {
           enableButtonAndHideInputError();
         }
       }
@@ -185,7 +185,7 @@ function addCloseOverlayEventListeners() {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closePopup(modalElement);
-        if (modalElement.classList.contains("pain_in_the_butt")) {
+        if (modalElement.classList.contains("modal-pain")) {
           enableButtonAndHideInputError();
         }
       }
