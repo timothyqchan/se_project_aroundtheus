@@ -80,8 +80,25 @@ function openPopup(modal) {
   modal.classList.add("modal_opened");
 }
 
+function enableButtonAndHideInputError() {
+  // enable button
+  const saveButton = editProfileForm.querySelector("#profile-save-button");
+  saveButton.classList.remove("modal__button_disabled");
+  saveButton.disabled = false;
+  // hide input error
+  const inputElements = editProfileForm.querySelectorAll(".modal__input");
+  inputElements.forEach((inputElement) => {
+    const errorMessageElement = editProfileForm.querySelector(
+      `#${inputElement.id}-error`
+    );
+    inputElement.classList.remove("modal__input_type_error");
+    errorMessageElement.classList.remove("modal__error_visible");
+  });
+}
+
 function closeEditProfileModal() {
   closePopup(editProfileModal);
+  enableButtonAndHideInputError();
 }
 
 function openEditProfileModal() {
@@ -148,9 +165,37 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closeAddCardModal();
   addCardForm.reset();
+  // turns create button back to disbabled after creating new card
+  const createButton = addCardForm.querySelector("#create-card-button");
+  createButton.classList.add("modal__button_disabled");
+  createButton.disabled = true;
+}
+
+function addCloseOverlayEventListeners() {
+  const modalElements = [...document.querySelectorAll(".modal")];
+  modalElements.forEach((modalElement) => {
+    modalElement.addEventListener("mousedown", (e) => {
+      if (e.target.classList.contains("modal")) {
+        closePopup(modalElement);
+        if (modalElement.classList.contains("pain_in_the_butt")) {
+          enableButtonAndHideInputError();
+        }
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closePopup(modalElement);
+        if (modalElement.classList.contains("pain_in_the_butt")) {
+          enableButtonAndHideInputError();
+        }
+      }
+    });
+  });
 }
 
 // Event Listeners
+
+addCloseOverlayEventListeners();
 
 editProfileButton.addEventListener("click", openEditProfileModal);
 
