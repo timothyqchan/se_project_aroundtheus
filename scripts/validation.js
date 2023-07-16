@@ -24,6 +24,13 @@ function hideInputError(
   errorMessageElement.classList.remove(errorClass);
 }
 
+function hideAllInputErrors(formElement, options) {
+  const inputElements = formElement.querySelectorAll(options.inputSelector);
+  inputElements.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, options);
+  });
+}
+
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, options);

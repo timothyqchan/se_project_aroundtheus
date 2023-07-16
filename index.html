@@ -159,7 +159,8 @@
       </li>
     </template>
 
-    <script src="./scripts/index.js" defer></script>
     <script src="./scripts/validation.js" defer></script>
+    <!-- Keep scripts in this order: index.js uses functions from validation.js -->
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>

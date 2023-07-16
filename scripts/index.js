@@ -44,6 +44,7 @@ const editProfileCloseButton = editProfileModal.querySelector(
   "#close-profile-button"
 );
 const addCardButton = document.querySelector("#add-card-button");
+const addCardSubmitButton = addCardForm.querySelector("#create-card-button");
 const addCardCloseButton = addCardModal.querySelector("#close-add-card-button");
 const previewImageCloseButton = previewImageModal.querySelector(
   "#close-preview-button"
@@ -84,34 +85,6 @@ function openModal(modal) {
   document.addEventListener("keydown", closeModalByEscape);
 }
 
-function disableFormButton(form) {
-  const button = form.querySelector(".modal__button");
-  button.classList.add("modal__button_disabled");
-  button.disabled = true;
-}
-
-function enableFormButton(form) {
-  const button = form.querySelector(".modal__button");
-  button.classList.remove("modal__button_disabled");
-  button.disabled = false;
-}
-
-function hideModalInputError(form, inputElement) {
-  const errorMessageElement = form.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.remove("modal__input_type_error");
-  errorMessageElement.classList.remove("modal__error_visible");
-}
-
-function enableButtonAndHideInputError(form) {
-  // enable button
-  enableFormButton(form);
-  // hide input error
-  const inputElements = form.querySelectorAll(".modal__input");
-  inputElements.forEach((inputElement) => {
-    hideModalInputError(form, inputElement);
-  });
-}
-
 function closeEditProfileModal() {
   closeModal(editProfileModal);
 }
@@ -119,7 +92,11 @@ function closeEditProfileModal() {
 function openEditProfileModal() {
   fillProfileForm();
   openModal(editProfileModal);
-  enableButtonAndHideInputError(editProfileModal);
+  enableButton(
+    editProfileModal.querySelector(config.submitButtonSelector),
+    config.inactiveButtonClass
+  );
+  hideAllInputErrors(editProfileModal, config);
 }
 
 function closeAddCardModal() {
@@ -182,7 +159,7 @@ function handleAddCardSubmit(e) {
   closeAddCardModal();
   addCardForm.reset();
   // turns create button back to disbabled after creating new card
-  disableFormButton(addCardForm);
+  disableButton(addCardSubmitButton, "modal__button_disabled");
 }
 
 function closeModalOnRemoteClick(evt) {
@@ -218,8 +195,10 @@ previewImageCloseButton.addEventListener("click", closePreviewImageModal);
 
 // Loops
 
-disableFormButton(addCardForm);
-
 initialCards.forEach((cardData) => {
   renderCard(cardData, cardListEl);
 });
+
+// On start-up
+
+disableButton(addCardSubmitButton, "modal__button_disabled");
