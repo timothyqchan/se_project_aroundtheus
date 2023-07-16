@@ -26,9 +26,10 @@ function hideInputError(
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
-    return showInputError(formElement, inputElement, options);
+    showInputError(formElement, inputElement, options);
+  } else {
+    hideInputError(formElement, inputElement, options);
   }
-  hideInputError(formElement, inputElement, options);
 }
 function hasInvalidInput(inputList) {
   return !inputList.every((inputElement) => inputElement.validity.valid);
@@ -51,9 +52,9 @@ function toggleButtonState(
 ) {
   if (hasInvalidInput(inputElements)) {
     disableButton(submitButton, inactiveButtonClass);
-    return;
+  } else {
+    enableButton(submitButton, inactiveButtonClass);
   }
-  enableButton(submitButton, inactiveButtonClass);
 }
 
 function setEventListeners(formElement, options) {
