@@ -38,6 +38,7 @@ function checkInputValidity(formElement, inputElement, options) {
     hideInputError(formElement, inputElement, options);
   }
 }
+
 function hasInvalidInput(inputList) {
   return !inputList.every((inputElement) => inputElement.validity.valid);
 }
