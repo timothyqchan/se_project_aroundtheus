@@ -1,34 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import { validationSettings } from "../utils/validationSettings.js";
+import { validationSettings, initialCards } from "../utils/constants.js";
 import { openModal, closeModal } from "../utils/utils.js";
-
-const initialCards = [
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-];
 
 // Elements
 const cardTemplate = document
@@ -126,7 +99,7 @@ function handleAddCardSubmit(e) {
   e.preventDefault();
   const name = addCardTitleInput.value;
   const link = addCardLinkInput.value;
-  renderCard({ name, link }, cardListElement);
+  renderCard({ name, link });
   closeAddCardModal();
   addCardForm.reset();
   // turns create button back to disbabled after creating new card
@@ -138,12 +111,7 @@ function handleOpenEditProfileModal() {
   openModal(editProfileModal);
   editProfileFormValidator.resetButtonState();
   const inputElements = [...editProfileForm.querySelectorAll(".modal__input")];
-  inputElements.forEach((inputElement) => {
-    inputElement.classList.remove("modal__input_type_error");
-    editProfileForm
-      .querySelector(`#${inputElement.id}-error`)
-      .classList.remove("modal__error_visible");
-  });
+  editProfileFormValidator.hideModalInputError(inputElements);
 }
 
 function closeEditProfileModal() {
@@ -183,7 +151,7 @@ previewImageCloseButton.addEventListener("click", closePreviewImageModal);
 // Initial start-up
 
 initialCards.forEach((cardData) => {
-  renderCard(cardData, cardListElement);
+  renderCard(cardData);
 });
 
 const editProfileFormValidator = new FormValidator(

@@ -40,6 +40,15 @@ export default class FormValidator {
     );
   }
 
+  hideModalInputError(inputElements) {
+    inputElements.forEach((inputElement) => {
+      inputElement.classList.remove(this._inputErrorClass);
+      this._form
+        .querySelector(`#${inputElement.id}-error`)
+        .classList.remove(this._errorClass);
+    });
+  }
+
   _disableButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;

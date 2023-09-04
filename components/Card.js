@@ -31,6 +31,7 @@ export default class Card {
     this._cardElement = null;
   }
 
+  // Find out how to do this better in index.js
   _handleImageModal() {
     const previewImage = document.querySelector("#modal-preview-image");
     previewImage.src = this._link;
@@ -60,6 +61,7 @@ export default class Card {
     );
 
     this._cardImageElement.src = this._link;
+    this._cardImageElement.alt = this._name;
     this._cardTitleElement.textContent = this._name;
     // set event listeners
     this._setEventListeners();
