@@ -1,3 +1,6 @@
+// This is just for my own reference and notes
+// Dont mind it
+
 function showInputError(
   formElement,
   inputElement,

@@ -1,10 +1,12 @@
+import Popup from "./Popup.js";
 import { openModal } from "../utils/utils.js";
 
 export default class Card {
-  constructor(data, cardSelector) {
-    this._name = data.name;
+  constructor(data, cardSelector, handleCardClick) {
+    this._title = data.title;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _setEventListeners() {
@@ -18,7 +20,7 @@ export default class Card {
     );
     this._cardImageElement.addEventListener(
       "click",
-      this._handleImageModal.bind(this)
+      this._handleCardClick.bind(this)
     );
   }
 
@@ -29,16 +31,6 @@ export default class Card {
   _handleDeleteButton() {
     this._cardElement.remove();
     this._cardElement = null;
-  }
-
-  // Find out how to do this better in index.js
-  _handleImageModal() {
-    const previewImage = document.querySelector("#modal-preview-image");
-    previewImage.src = this._link;
-    previewImage.alt = this._name;
-    const previewCaption = document.querySelector("#preview-image-caption");
-    previewCaption.textContent = this._name;
-    openModal(document.querySelector("#preview-image-modal"));
   }
 
   _getCardTemplate() {
@@ -61,8 +53,8 @@ export default class Card {
     );
 
     this._cardImageElement.src = this._link;
-    this._cardImageElement.alt = this._name;
-    this._cardTitleElement.textContent = this._name;
+    this._cardImageElement.alt = this._title;
+    this._cardTitleElement.textContent = this._title;
     // set event listeners
     this._setEventListeners();
     // return card
