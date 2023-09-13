@@ -57,8 +57,9 @@ cards.renderItems();
 // Functions
 
 function fillProfileForm() {
-  profileNameInput.value = profileName.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  const info = userInfo.getUserInfo();
+  profileNameInput.value = info.name;
+  profileDescriptionInput.value = info.description;
 }
 
 function renderCard(cardData) {
@@ -83,11 +84,13 @@ addCardFormValidator.resetButtonState();
 
 // Popup setup
 
+const userInfo = new UserInfo(profileName, profileDescription);
+
 const editProfileFormPopup = new PopupWithForm(
   editProfileModal,
   (inputValues) => {
-    profileName.textContent = inputValues.name;
-    profileDescription.textContent = inputValues.description;
+    userInfo.setUserInfo(inputValues.name, inputValues.description);
+    console.log(inputValues);
   }
 );
 

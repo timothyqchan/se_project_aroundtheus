@@ -25,12 +25,15 @@ This project also showcases JavaScript applications:
 - Query selectors
 - Array lists
 - Objects
+- OOP
 - Loops (ForEach)
 - DOM
 - Functions
 - Universal functions (Don't repeat code)
 - Event handlers
 - Event listeners
+- Layering
+- Webpack
 
 The site is responsive to various different screen widths including:
 
