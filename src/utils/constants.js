@@ -45,23 +45,23 @@ export const addCardForm = document.querySelector("#add-card-form");
 
 // Wrappers
 export const cardListElement = document.querySelector(".content__list");
-export const editProfileModal = document.querySelector("#edit-profile-modal");
-export const addCardModal = document.querySelector("#add-card-modal");
-export const previewImageModal = document.querySelector("#preview-image-modal");
+export const editProfileModal = "#edit-profile-modal";
+export const addCardModal = "#add-card-modal";
+export const previewImageModal = "#preview-image-modal";
 
 // Buttons
 export const editProfileButton = document.querySelector("#edit-profile-button");
-export const editProfileCloseButton = editProfileModal.querySelector(
+export const editProfileCloseButton = document.querySelector(
   "#close-profile-button"
 );
 export const addCardButton = document.querySelector("#add-card-button");
 export const addCardSubmitButton = addCardForm.querySelector(
   "#create-card-button"
 );
-export const addCardCloseButton = addCardModal.querySelector(
+export const addCardCloseButton = document.querySelector(
   "#close-add-card-button"
 );
-export const previewImageCloseButton = previewImageModal.querySelector(
+export const previewImageCloseButton = document.querySelector(
   "#close-preview-button"
 );
 

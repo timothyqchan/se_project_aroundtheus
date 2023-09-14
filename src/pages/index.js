@@ -30,7 +30,7 @@ const cards = new Section(
       cards.addItem(renderCard(cardData));
     },
   },
-  cardListElement
+  ".content__list"
 );
 
 cards.renderItems();
@@ -76,19 +76,16 @@ function handleEditProfileButton() {
 
 function handleAddCardButton() {
   addCardFormValidator.resetButtonState();
+  addCardFormValidator.hideModalInputError();
   addCardFormPopup.open();
 }
 
 // Event Listeners
 
 editProfileFormPopup.setEventListeners();
-editProfileButton.addEventListener("click", () => {
-  handleEditProfileButton();
-});
+editProfileButton.addEventListener("click", handleEditProfileButton);
 addCardFormPopup.setEventListeners();
-addCardButton.addEventListener("click", () => {
-  handleAddCardButton();
-});
+addCardButton.addEventListener("click", handleAddCardButton);
 previewImagePopup.setEventListeners();
 
 // Functions
