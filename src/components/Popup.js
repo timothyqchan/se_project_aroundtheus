@@ -1,46 +1,42 @@
-import {
-  openModal,
-  closeModal,
-  closeModalOnRemoteClick,
-  closeModalByEscape,
-} from "../utils/utils.js";
-
 export default class Popup {
   constructor({ selector }) {
     this._popupElement = selector;
+    this._popupCloseButton = this._popupElement.querySelector(".modal__close");
   }
 
   open() {
     this._popupElement.classList.add("modal_opened");
-    this._popupElement.addEventListener("mousedown", closeModalOnRemoteClick);
-    document.addEventListener("keydown", closeModalByEscape);
-    this.setEventListeners();
+    this._popupElement.addEventListener("mousedown", this._handleRemoteClick);
+    document.addEventListener("keydown", this._handleEscClose);
   }
 
   close() {
     this._popupElement.classList.remove("modal_opened");
     this._popupElement.removeEventListener(
       "mousedown",
-      closeModalOnRemoteClick
+      this._handleRemoteClick
     );
-    document.removeEventListener("keydown", closeModalByEscape);
+    document.removeEventListener("keydown", this._handleEscClose);
   }
 
-  _handleEscClose(evt) {
-    // listens for esc button
+  _handleEscClose = (evt) => {
     if (evt.key === "Escape") {
       this.close();
     }
-  }
+  };
 
   setEventListeners() {
-    this._popupCloseButton = this._popupElement.querySelector(".modal__close");
     this._popupCloseButton.addEventListener("click", () => {
       this.close();
     });
-  }
 
-  getPopupElement() {
-    return this._popupElement;
+    this._popupElement.addEventListener("mousedown", (evt) => {
+      if (
+        evt.target.classList.contains("modal_opened") ||
+        evt.target.classList.contains("modal__close")
+      ) {
+        this.close();
+      }
+    });
   }
 }

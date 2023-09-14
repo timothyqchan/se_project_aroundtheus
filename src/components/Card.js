@@ -1,6 +1,3 @@
-import Popup from "./Popup.js";
-import { openModal } from "../utils/utils.js";
-
 export default class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._title = data.title;

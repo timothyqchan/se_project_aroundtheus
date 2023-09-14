@@ -4,7 +4,6 @@ import FormValidator from "../components/FormValidator.js";
 import {
   validationSettings,
   initialCards,
-  cardTemplate,
   editProfileForm,
   addCardForm,
   cardListElement,
@@ -12,19 +11,9 @@ import {
   addCardModal,
   previewImageModal,
   editProfileButton,
-  editProfileCloseButton,
   addCardButton,
-  addCardSubmitButton,
-  addCardCloseButton,
-  previewImageCloseButton,
   profileName,
   profileDescription,
-  previewImageCaption,
-  previewImage,
-  profileNameInput,
-  profileDescriptionInput,
-  addCardTitleInput,
-  addCardLinkInput,
   cardSelector,
 } from "../utils/constants.js";
 import Section from "../components/Section.js";
@@ -38,38 +27,13 @@ const cards = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
-      const card = new Card(cardData, cardSelector, () => {
-        const previewImagePopup = new PopupWithImage(
-          previewImageModal,
-          cardData
-        );
-        previewImagePopup.open();
-      });
-      const cardElement = card.getView();
-      cards.addItem(cardElement);
+      cards.addItem(renderCard(cardData));
     },
   },
   cardListElement
 );
 
 cards.renderItems();
-
-// Functions
-
-function fillProfileForm() {
-  const info = userInfo.getUserInfo();
-  profileNameInput.value = info.name;
-  profileDescriptionInput.value = info.description;
-}
-
-function renderCard(cardData) {
-  const card = new Card(cardData, cardSelector, () => {
-    const previewImagePopup = new PopupWithImage(previewImageModal, cardData);
-    previewImagePopup.open();
-  });
-  const cardElement = card.getView();
-  cardListElement.prepend(cardElement);
-}
 
 // Validation
 
@@ -90,27 +54,48 @@ const editProfileFormPopup = new PopupWithForm(
   editProfileModal,
   (inputValues) => {
     userInfo.setUserInfo(inputValues.name, inputValues.description);
-    console.log(inputValues);
   }
 );
-
-editProfileButton.addEventListener("click", () => {
-  editProfileFormPopup.open();
-  fillProfileForm();
-  editProfileFormValidator.resetButtonState();
-  const inputElements = [...editProfileForm.querySelectorAll(".modal__input")];
-  editProfileFormValidator.hideModalInputError(inputElements);
-});
 
 const addCardFormPopup = new PopupWithForm(addCardModal, (inputValues) => {
   const title = inputValues.title;
   const link = inputValues.link;
-  renderCard({ title, link });
-  addCardForm.reset();
-  // turns create button back to disbabled after creating new card
-  addCardFormValidator.resetButtonState();
+  cards.addItem(renderCard({ title, link }));
 });
 
-addCardButton.addEventListener("click", () => {
+const previewImagePopup = new PopupWithImage(previewImageModal);
+
+// Event Handlers
+
+function handleEditProfileButton() {
+  editProfileFormPopup.open();
+  editProfileFormPopup.setInputValues(userInfo.getUserInfo());
+  editProfileFormValidator.hideModalInputError();
+  editProfileFormValidator.resetButtonState();
+}
+
+function handleAddCardButton() {
+  addCardFormValidator.resetButtonState();
   addCardFormPopup.open();
+}
+
+// Event Listeners
+
+editProfileFormPopup.setEventListeners();
+editProfileButton.addEventListener("click", () => {
+  handleEditProfileButton();
 });
+addCardFormPopup.setEventListeners();
+addCardButton.addEventListener("click", () => {
+  handleAddCardButton();
+});
+previewImagePopup.setEventListeners();
+
+// Functions
+
+function renderCard(cardData) {
+  const card = new Card(cardData, cardSelector, () => {
+    previewImagePopup.open(cardData);
+  });
+  return card.getView();
+}
