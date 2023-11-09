@@ -21,6 +21,7 @@ import Api from "../components/Api.js";
 // Message to Tripleten reviewer: I'm so sorry for the terrible code.
 // I have really been struggling with this project and I dont know what I'm doing wrong
 // I keep getting an error in Popup.js, but I don't know whats wrong with it
+// Thank you for your patience
 
 // Initial start-up
 const { apiToken, apiUrl } = apiInfo;
