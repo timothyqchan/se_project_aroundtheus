@@ -1,0 +1,11 @@
+.content__list {
+  margin: 0 auto;
+  padding: 0;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  grid-gap: 20px 17px;
+  grid-template-columns: repeat(auto-fit, 282px);
+}
