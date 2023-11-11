@@ -1,31 +1,58 @@
 export default class Card {
-  constructor(data, cardSelector, handleCardClick) {
-    this._title = data.title;
-    this._link = data.link;
+  constructor({
+    name,
+    link,
+    userId,
+    _id,
+    ownerId,
+    isLiked,
+    handleImageClick,
+    handleDeleteClick,
+    handleLikeClick,
+    cardSelector,
+  }) {
+    this._name = name;
+    this._link = link;
+    this._userId = userId;
+    this._cardId = _id;
+    this._ownerId = ownerId;
+    this._isLiked = isLiked;
+    this._handleImageClick = handleImageClick;
+    this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
     this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick;
   }
 
   _setEventListeners() {
-    this._cardLikeButton.addEventListener(
-      "click",
-      this._handleLikeButton.bind(this)
-    );
-    this._cardDeleteButton.addEventListener(
-      "click",
-      this._handleDeleteButton.bind(this)
-    );
-    this._cardImageElement.addEventListener(
-      "click",
-      this._handleCardClick.bind(this)
-    );
+    // like button
+    this._likeButton.addEventListener("click", () => {
+      this._handleLikeClick(this);
+    });
+
+    this._cardImage.addEventListener("click", () => {
+      this._handleImageClick({ name: this._name, link: this._link });
+    });
+
+    // delete button
+    this._cardElement
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => this._handleDeleteClick(this));
   }
 
-  _handleLikeButton() {
-    this._cardLikeButton.classList.toggle("card__like-button_active");
+  _renderLikes() {
+    if (this._isLiked) {
+      this._likeButton.classList.add("card__like-button_active");
+    } else {
+      this._likeButton.classList.remove("card__like-button_active");
+    }
   }
 
-  _handleDeleteButton() {
+  setLikes(isLiked) {
+    this._isLiked = isLiked;
+    this._renderLikes();
+  }
+
+  deleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
   }
@@ -54,6 +81,7 @@ export default class Card {
     this._cardTitleElement.textContent = this._title;
     // set event listeners
     this._setEventListeners();
+    this._renderLikes();
     // return card
     return this._cardElement;
   }
