@@ -39,7 +39,7 @@ const api = new Api({
 
 const userInfo = new UserInfo(
   selectors.userNameSelector,
-  selectors.userJobSelector,
+  selectors.userDescriptionSelector,
   selectors.userAvatarSelector
 );
 
@@ -120,7 +120,6 @@ const enableValidation = (validationSettings) => {
   formList.forEach((formElem) => {
     const validator = new FormValidator(validationSettings, formElem);
     const formName = formElem.getAttribute("name");
-
     formValidators[formName] = validator;
     validator.enableValidation();
   });
@@ -224,5 +223,6 @@ avatarButton.addEventListener("click", () => {
 
 addCardButton.addEventListener("click", () => {
   cardModal.open();
+  console.log(formValidators[selectors.cardFormSelector]);
   formValidators[selectors.cardFormSelector].resetValidation();
 });

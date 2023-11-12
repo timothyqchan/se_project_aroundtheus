@@ -52,10 +52,10 @@ export const selectors = {
   cardListSelector: ".content__list",
   cardSelector: "#card-template",
   cardModalSelector: "#add-card-modal",
-  cardFormSelector: "add-card-form",
+  cardFormSelector: "card-form",
 
   profileModalSelector: "#edit-profile-modal",
-  profileFormSelector: "edit-profile-form",
+  profileFormSelector: "profile-form",
 
   confirmationModalSelector: "#delete-modal",
 };

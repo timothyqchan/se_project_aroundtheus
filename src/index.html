@@ -61,6 +61,7 @@
       <div class="modal__container modal__container_avatar">
         <button class="modal__close-button" type="button"></button>
         <form
+          name="avatar-form"
           class="modal__form"
           name="avatar-form"
           id="avatar-form"
@@ -90,7 +91,7 @@
           type="button"
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form" id="edit-profile-form">
+        <form name="profile-form" class="modal__form" id="edit-profile-form">
           <input
             class="modal__input modal__input_type_name"
             id="profile-name-input"
@@ -123,7 +124,7 @@
       </div>
     </div>
 
-    <!-- Add Modal -->
+    <!-- Add Card Modal -->
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
         <button
@@ -132,7 +133,7 @@
           type="button"
         ></button>
         <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form" id="add-card-form">
+        <form name="card-form" class="modal__form" id="add-card-form">
           <input
             class="modal__input modal__input_type_title"
             id="card-title-input"
