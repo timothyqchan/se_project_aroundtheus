@@ -31,13 +31,13 @@
             <img class="profile__image" src="" alt="Avatar" />
           </div>
           <div class="profile__info">
-            <h1 class="profile__name">Jacques Cousteau</h1>
+            <h1 class="profile__name"></h1>
             <button
               class="profile__edit-button"
               id="edit-profile-button"
               type="button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button
             class="profile__add-button"
@@ -59,7 +59,11 @@
     <!-- Edit Avatar Modal -->
     <div class="modal" id="edit-avatar-modal">
       <div class="modal__container modal__container_avatar">
-        <button class="modal__close-button" type="button"></button>
+        <button
+          class="modal__close"
+          id="close-avatar-button"
+          type="button"
+        ></button>
         <form
           name="avatar-form"
           class="modal__form"

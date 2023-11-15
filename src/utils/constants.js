@@ -43,7 +43,7 @@ export const selectors = {
   avatarModalSelector: "#edit-avatar-modal",
   avatarFormSelector: "avatar-form",
 
-  userAvatarSelector: ".profile__avatar",
+  userAvatarSelector: ".profile__image",
   userNameSelector: ".profile__name",
   userDescriptionSelector: ".profile__description",
 

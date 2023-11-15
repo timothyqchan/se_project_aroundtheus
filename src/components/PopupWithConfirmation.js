@@ -15,7 +15,6 @@ export default class PopupWithConfirmation extends Popup {
 
   setButtonText(submit, buttonText = "Saving...") {
     if (submit) {
-      console.log(this._submitButton);
       this._submitButton.textContent = buttonText;
     } else {
       this._submitButton.textContent = this._submitButtonText;

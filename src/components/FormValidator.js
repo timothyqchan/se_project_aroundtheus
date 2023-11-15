@@ -12,15 +12,21 @@ export default class FormValidator {
   }
 
   _showInputError(inputElement) {
+    const errorMessageElem = this._form.querySelector(
+      `#${inputElement.id}-error`
+    );
     inputElement.classList.add(this._inputErrorClass);
-    this._errorMessageElement.textContent = inputElement.validationMessage;
-    this._errorMessageElement.classList.add(this._errorClass);
+    errorMessageElem.textContent = inputElement.validationMessage;
+    errorMessageElem.classList.add(this._errorClass);
   }
 
   _hideInputError(inputElement) {
+    const errorMessageElem = this._form.querySelector(
+      `#${inputElement.id}-error`
+    );
     inputElement.classList.remove(this._inputErrorClass);
-    this._errorMessageElement.textContent = "";
-    this._errorMessageElement.classList.remove(this._errorClass);
+    errorMessageElem.textContent = "";
+    errorMessageElem.classList.remove(this._errorClass);
   }
 
   _checkInputValidity(inputElement) {

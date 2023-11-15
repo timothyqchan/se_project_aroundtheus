@@ -9,15 +9,15 @@ export default class UserInfo {
     // returns an object with info on the user
     return {
       name: this._nameElement.textContent,
-      description: this._descriptionElement.textContent,
+      about: this._descriptionElement.textContent,
       avatar: this._avatarElement.src,
     };
   }
 
-  setUserInfo({ name, description }) {
+  setUserInfo({ name, about }) {
     // takes new user info and adds it to the page
     this._nameElement.textContent = name;
-    this._descriptionElement.textContent = description;
+    this._descriptionElement.textContent = about;
   }
 
   setAvatar(avatar) {

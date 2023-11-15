@@ -63,7 +63,7 @@ const handleDeleteClick = (card) => {
 const handleLikeClick = (card) => {
   if (card._isLiked) {
     api
-      .removeCardLike(card._cardId)
+      .dislikeCard(card._cardId)
       .then(() => {
         card.setLikes(false);
       })
@@ -72,7 +72,7 @@ const handleLikeClick = (card) => {
       });
   } else {
     api
-      .addCardLike(card._cardId)
+      .likeCard(card._cardId)
       .then(() => {
         card.setLikes(true);
       })
@@ -91,9 +91,8 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([data, cards]) => {
     userInfo.setUserInfo({
       name: data.name,
-      job: data.about,
+      about: data.about,
     });
-
     userInfo.setAvatar(data.avatar);
 
     section = new Section(
@@ -130,7 +129,7 @@ editProfileButton.addEventListener("click", () => {
   const info = userInfo.getUserInfo();
 
   profileNameInput.value = info.name;
-  profileDescriptionInput.value = info.job;
+  profileDescriptionInput.value = info.about;
 
   profileModal.open();
   formValidators["profile-form"].resetValidation();
@@ -149,6 +148,7 @@ const renderCard = ({ name, link, _id, ownerId, isLiked }, userId) => {
     handleLikeClick,
     cardSelector: selectors.cardSelector,
   });
+
   return card.getView();
 };
 
@@ -161,7 +161,7 @@ const avatarModal = new PopupWithForm(
   (avatarData) => {
     avatarModal.setButtonText(true);
     api
-      .editProfilePhoto(avatarData)
+      .updateAvatar(avatarData)
       .then((data) => {
         userInfo.setAvatar(data.avatar);
         avatarModal.close();
@@ -201,13 +201,11 @@ const profileModal = new PopupWithForm(
       .then((profileData) => {
         userInfo.setUserInfo({
           name: profileData.name,
-          job: profileData.about,
+          about: profileData.about,
         });
         profileModal.close();
       })
-      .then(() => {
-        console.log(userInfo.getUserInfo());
-      })
+      .then(() => {})
       .catch((err) => {
         console.error(err);
       })
@@ -223,6 +221,5 @@ avatarButton.addEventListener("click", () => {
 
 addCardButton.addEventListener("click", () => {
   cardModal.open();
-  console.log(formValidators[selectors.cardFormSelector]);
   formValidators[selectors.cardFormSelector].resetValidation();
 });
