@@ -205,7 +205,6 @@ const profileModal = new PopupWithForm(
         });
         profileModal.close();
       })
-      .then(() => {})
       .catch((err) => {
         console.error(err);
       })

@@ -8,11 +8,6 @@ export default class PopupWithConfirmation extends Popup {
     this._submitButtonText = this._submitButton.textContent;
   }
 
-  close() {
-    this._form.reset();
-    super.close();
-  }
-
   setButtonText(submit, buttonText = "Saving...") {
     if (submit) {
       this._submitButton.textContent = buttonText;
