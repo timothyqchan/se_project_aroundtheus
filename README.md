@@ -24,7 +24,7 @@ This project also showcases JavaScript applications:
 
 - Query selectors
 - Array lists
-- Objects
+- Objects and classes
 - OOP
 - Loops (ForEach)
 - DOM
@@ -34,6 +34,7 @@ This project also showcases JavaScript applications:
 - Event listeners
 - Layering
 - Webpack
+- API
 
 The site is responsive to various different screen widths including:
 
