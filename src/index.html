@@ -22,19 +22,22 @@
       <main class="content">
         <!-- Profile -->
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Jacques Cousteau face"
-          />
+          <div class="profile__avatar">
+            <button
+              class="profile__avatar-button"
+              id="avatar-button"
+              type="button"
+            ></button>
+            <img class="profile__image" src="" alt="Avatar" />
+          </div>
           <div class="profile__info">
-            <h1 class="profile__name">Jacques Cousteau</h1>
+            <h1 class="profile__name"></h1>
             <button
               class="profile__edit-button"
               id="edit-profile-button"
               type="button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button
             class="profile__add-button"
@@ -52,6 +55,37 @@
         <p class="footer__copyright">&copy; 2023 Around The U.S.</p>
       </footer>
     </div>
+
+    <!-- Edit Avatar Modal -->
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container modal__container_avatar">
+        <button
+          class="modal__close"
+          id="close-avatar-button"
+          type="button"
+        ></button>
+        <form
+          name="avatar-form"
+          class="modal__form"
+          name="avatar-form"
+          id="avatar-form"
+          novalidate
+        >
+          <p class="modal__heading">Change profile picture</p>
+          <input
+            name="avatar"
+            placeholder="Image Link"
+            id="avatar-link"
+            type="url"
+            class="modal__input modal__input_type_avatar"
+            required
+          />
+          <span class="modal__error" id="avatar-link-error"></span>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
     <!-- Edit Modal -->
     <div class="modal" id="edit-profile-modal">
       <div class="modal__container">
@@ -61,7 +95,7 @@
           type="button"
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form" id="edit-profile-form">
+        <form name="profile-form" class="modal__form" id="edit-profile-form">
           <input
             class="modal__input modal__input_type_name"
             id="profile-name-input"
@@ -93,7 +127,8 @@
         </form>
       </div>
     </div>
-    <!-- Add Modal -->
+
+    <!-- Add Card Modal -->
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
         <button
@@ -102,7 +137,7 @@
           type="button"
         ></button>
         <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form" id="add-card-form">
+        <form name="card-form" class="modal__form" id="add-card-form">
           <input
             class="modal__input modal__input_type_title"
             id="card-title-input"
@@ -129,6 +164,7 @@
         </form>
       </div>
     </div>
+
     <!-- Preview Image Modal -->
     <div class="modal" id="preview-image-modal">
       <div class="modal__preview-container">
@@ -146,6 +182,18 @@
         <p class="modal__caption" id="preview-image-caption"></p>
       </div>
     </div>
+
+    <!-- Confirm Delete Modal -->
+    <div class="modal" id="delete-modal">
+      <div class="modal__container modal__container_confirm">
+        <button class="modal__close"></button>
+        <form class="modal__form">
+          <p class="modal__heading">Are you sure?</p>
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+
     <!-- Card Template -->
     <template id="card-template">
       <li class="card">
